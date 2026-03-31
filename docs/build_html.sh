@@ -11,17 +11,12 @@ DOCKER_PRIVATE_REGISTRY=${3:-""}
 
 ROOT="$(realpath "$(dirname "${0}")"/..)"
 DOCS_DIR=$ROOT/docs
-DOXYGEN_DIR=$ROOT/docs/user-guide/_doxygen
 IMAGE_DOCS_DIR=/root/docs
 
 # Copy necessary files located outside of this folder
 echo "::group::Prepare for docker build"
 cp -r "$ROOT"/samples/model_index.yaml "$DOCS_DIR"
 cp -r "$ROOT"/samples/verified_models.json "$DOCS_DIR"
-mkdir -p "$DOXYGEN_DIR"/src
-cp -r "$ROOT"/gst-libs/gst/videoanalytics "$ROOT"/python/gstgva "$ROOT"/include/dlstreamer/gst/metadata "$DOXYGEN_DIR"/src
-mkdir -p "$DOXYGEN_DIR"/src-api2.0
-cp -r "$ROOT"/include/dlstreamer "$DOXYGEN_DIR"/src-api2.0
 echo "::endgroup::"
 
 # Build docker image

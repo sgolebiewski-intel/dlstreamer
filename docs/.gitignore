@@ -1,6 +1,3 @@
 build**/
 
-user-guide/_doxygen/src/
-user-guide/_doxygen/src-api2.0/
-
 model_index.yaml
